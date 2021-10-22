@@ -89,3 +89,46 @@ do {
 
 // 🥳
 console.log("😬");
+
+/**
+ * Switch
+ */
+
+
+/*
+let grade = "MVP";
+
+if (grade == "VG") {
+	console.log("🥳 Nice!! You got a VG");
+
+} else if (grade == "G") {
+	console.log("🆗 Excellent! You got a G");
+
+} else if (grade == "IG") {
+	console.log("😔 Sorry, you got a IG");
+
+} else {
+	console.log("😡 Why you try 🐅 cheating?!");
+
+}
+*/
+
+let grade = "G";
+switch (grade) {
+	case "VG":
+		console.log("🥳 Nice!! You got a VG");
+		alert("🎆");
+		break;
+
+	case "G":
+		console.log("🆗 Excellent! You got a G");
+		break;
+
+	case "IG":
+		console.log("😔 Sorry, you got a IG");
+		break;
+
+	default:
+		console.log("😡 Why you try 🐅 cheating?!");
+		break;
+}
