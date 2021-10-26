@@ -37,10 +37,14 @@ function getRandomNumber() {
  */
 let numberToGuess = getRandomNumber();
 let continueGame = true;
+let guesses = 0;
 
 console.log(`numberToGuess: ${numberToGuess}`);
 
 while (continueGame) {
+	// Increase number of guesses made
+	guesses++;   //   guesses += 1   guesses = guesses + 1
+
 	// Ask user for guess
 	let guess = Number( prompt("Please enter your guess") );
 	console.log("Guessed number:", guess, typeof guess);
@@ -48,12 +52,12 @@ while (continueGame) {
 	// Is guess correct?
 	if (guess === numberToGuess) {
 		console.log("Guess was correct! 🥳");
-		alert(`Great success!`);
+		alert(`Great success! You guessed the correct answer in ${guesses} guesses 🥳`);
 		continueGame = false;
 
 	} else if (guess === 0) {
 		console.log("Guess was 0, quitting game");
-		alert(`Y U GIVE UP?!`);
+		alert(`Y U GIVE UP AFTER ONLY ${guesses} GUESSES?!`);
 		continueGame = false;
 
 	} else if (guess < numberToGuess) {
