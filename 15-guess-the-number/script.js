@@ -35,6 +35,7 @@ function getRandomNumber() {
 /**
  * Number to guess
  */
+let highscore = false;
 let exitGame = false;
 while (!exitGame) {
 
@@ -55,6 +56,20 @@ while (!exitGame) {
 
 		// Is guess correct?
 		if (guess === numberToGuess) {
+
+			// we can haz highscore?
+			if (highscore) {
+				// new highscore?
+				if (guesses < highscore) {
+					console.log(`YAY NEW HIGHSCORE!`);
+					highscore = guesses;
+				} else {
+					console.log(`Sorry, no new highscore. Your current highscore is ${highscore}.`);
+				}
+			} else {
+				highscore = guesses;
+			}
+
 			console.log("Guess was correct! 🥳");
 			alert(`Great success! You guessed the correct answer in ${guesses} guesses 🥳`);
 			continueGame = false;
