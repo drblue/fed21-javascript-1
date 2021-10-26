@@ -32,6 +32,11 @@ function getRandomNumber() {
 	return Math.ceil( Math.random() * 10 );
 }
 
+const getRandomNumber = function(max = 10) {
+	return Math.ceil( Math.random() * max );
+}
+
+
 /**
  * Number to guess
  */
@@ -40,7 +45,7 @@ let exitGame = false;
 while (!exitGame) {
 
 	// PARTY ON
-	let numberToGuess = getRandomNumber();
+	let numberToGuess = getRandomNumber(50);
 	let continueGame = true;
 	let guesses = 0;
 
