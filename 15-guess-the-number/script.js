@@ -26,3 +26,29 @@
  * ${tries} antal försök men din highscore är ${highscore}".
  * Om användaren gissar rätt på färre gånger, visa "YAY NEW HIGHSCORE! ${highscore}"
  */
+
+/**
+ * Number to guess
+ */
+let numberToGuess = 5;
+let continueGame = true;
+
+while (continueGame) {
+	// Ask user for guess
+	let guess = Number( prompt("Please enter your guess") );
+	console.log("Guessed number:", guess, typeof guess);
+
+	// Is guess 0?
+	if (guess === 0) {
+		console.log("Guess was 0, quitting game");
+		alert(`Y U GIVE UP?!`);
+		continueGame = false;
+	}
+
+	// Is guess correct?
+	if (guess === numberToGuess) {
+		console.log("Guess was correct! 🥳");
+		alert(`Great success!`);
+		continueGame = false;
+	}
+}
