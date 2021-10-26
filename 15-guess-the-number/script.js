@@ -27,11 +27,18 @@
  * Om användaren gissar rätt på färre gånger, visa "YAY NEW HIGHSCORE! ${highscore}"
  */
 
+// Get a random number between 1-10
+function getRandomNumber() {
+	return Math.ceil( Math.random() * 10 );
+}
+
 /**
  * Number to guess
  */
-let numberToGuess = 5;
+let numberToGuess = getRandomNumber();
 let continueGame = true;
+
+console.log(`numberToGuess: ${numberToGuess}`);
 
 while (continueGame) {
 	// Ask user for guess
