@@ -38,17 +38,22 @@ while (continueGame) {
 	let guess = Number( prompt("Please enter your guess") );
 	console.log("Guessed number:", guess, typeof guess);
 
-	// Is guess 0?
-	if (guess === 0) {
-		console.log("Guess was 0, quitting game");
-		alert(`Y U GIVE UP?!`);
-		continueGame = false;
-	}
-
 	// Is guess correct?
 	if (guess === numberToGuess) {
 		console.log("Guess was correct! 🥳");
 		alert(`Great success!`);
 		continueGame = false;
+
+	} else if (guess === 0) {
+		console.log("Guess was 0, quitting game");
+		alert(`Y U GIVE UP?!`);
+		continueGame = false;
+
+	} else if (guess < numberToGuess) {
+		console.log(`TOO LOW!`);
+
+	} else if (guess > numberToGuess) {
+		console.log(`TOO HIGH!`);
+
 	}
 }
