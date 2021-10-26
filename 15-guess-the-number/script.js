@@ -35,36 +35,45 @@ function getRandomNumber() {
 /**
  * Number to guess
  */
-let numberToGuess = getRandomNumber();
-let continueGame = true;
-let guesses = 0;
+let exitGame = false;
+while (!exitGame) {
 
-console.log(`numberToGuess: ${numberToGuess}`);
+	// PARTY ON
+	let numberToGuess = getRandomNumber();
+	let continueGame = true;
+	let guesses = 0;
 
-while (continueGame) {
-	// Increase number of guesses made
-	guesses++;   //   guesses += 1   guesses = guesses + 1
+	console.log(`numberToGuess: ${numberToGuess}`);
 
-	// Ask user for guess
-	let guess = Number( prompt("Please enter your guess") );
-	console.log("Guessed number:", guess, typeof guess);
+	while (continueGame) {
+		// Increase number of guesses made
+		guesses++;   //   guesses += 1   guesses = guesses + 1
 
-	// Is guess correct?
-	if (guess === numberToGuess) {
-		console.log("Guess was correct! 🥳");
-		alert(`Great success! You guessed the correct answer in ${guesses} guesses 🥳`);
-		continueGame = false;
+		// Ask user for guess
+		let guess = Number( prompt("Please enter your guess") );
+		console.log("Guessed number:", guess, typeof guess);
 
-	} else if (guess === 0) {
-		console.log("Guess was 0, quitting game");
-		alert(`Y U GIVE UP AFTER ONLY ${guesses} GUESSES?!`);
-		continueGame = false;
+		// Is guess correct?
+		if (guess === numberToGuess) {
+			console.log("Guess was correct! 🥳");
+			alert(`Great success! You guessed the correct answer in ${guesses} guesses 🥳`);
+			continueGame = false;
 
-	} else if (guess < numberToGuess) {
-		console.log(`TOO LOW!`);
+		} else if (guess === 0) {
+			console.log("Guess was 0, quitting game");
+			alert(`Y U GIVE UP AFTER ONLY ${guesses} GUESSES?!`);
+			continueGame = false;
+			exitGame = true;
 
-	} else if (guess > numberToGuess) {
-		console.log(`TOO HIGH!`);
+		} else if (guess < numberToGuess) {
+			console.log(`TOO LOW!`);
 
+		} else if (guess > numberToGuess) {
+			console.log(`TOO HIGH!`);
+
+		}
 	}
+
 }
+
+
