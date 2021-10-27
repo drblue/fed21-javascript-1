@@ -73,6 +73,7 @@ const scream = (txt, apa) => {
 scream("Is a bad movie", nagUser);
 */
 
+/*
 let students = ["Johan", "Pelle", "Kajsa", "Maja"];
 
 for (let i = 0; i < students.length; i++) {
@@ -82,3 +83,26 @@ for (let i = 0; i < students.length; i++) {
 students.forEach( (student, i) => {
 	console.log(`Student at index ${i} is: ${student}`);
 } );
+*/
+
+const calcArea = (w, h) => {
+	const area = w * h; // 75
+	return area; // 75
+}
+
+const isPositiveNumber = (num) => {
+	if (num > 0) {
+		return true;
+	} else if (num < 0) {
+		return false;
+	}
+
+	return null;
+}
+
+// const res = calcArea(5, 15);
+// console.log(`Area of square with dimensions 5 by 15 is ${res}`);
+
+console.log("Is 42 positive number?", isPositiveNumber(42) );
+console.log("Is 0 positive number?", isPositiveNumber(0) );
+console.log("Is -1337 positive number?", isPositiveNumber(-1337) );
