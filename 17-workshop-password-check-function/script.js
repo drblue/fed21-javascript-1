@@ -69,8 +69,8 @@ const checkPassword = (password) => {
  const passwords = [
 	"password", // inte giltigt
 	"pa$sword", // giltigt
-	// "p@ssw%rd", // giltigt
-	// "pa$$word", // giltigt
+	"p@ssw%rd", // giltigt
+	"pa$$word", // giltigt
 	// "secretpassword", // inte giltigt
 	// "secret-password", // giltigt
 	// "such-password-much-secure-very-long", // giltigt
@@ -79,7 +79,6 @@ const checkPassword = (password) => {
 // Loop over all passwords
 passwords.forEach( (item) => {
 
-	// Check if password is secure 🕵🏻
 	let res = checkPassword( item );
 
 	// Was password secure?
