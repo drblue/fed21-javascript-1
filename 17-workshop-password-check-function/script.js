@@ -26,17 +26,6 @@
  *
  */
 
-/**
- * Password to test
- */
-let password;
-// password = "password"; // inte giltigt
-// password = "pa$sword"; // giltigt
-password = "p@ssw%rd"; // giltigt
-// password = "pa$$word"; // giltigt
-// password = "secretpassword"; // inte giltigt
-// password = "secret-password"; // giltigt
-// password = "such-password-much-secure-very-long"; // giltigt
 
 const specialChars = [
 	"@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
@@ -54,28 +43,52 @@ const checkPassword = (password) => {
 		i < specialChars.length; // should we continue another round?
 		i++) // run AFTER each round is executed
 	{
-		//console.log("At special char:", specialChars[i]);
 		if (password.includes(specialChars[i])) {
-			console.log("Password contained char:", specialChars[i]);
 			containsSpecialChar = true;
 		}
 	}
 
 	// Har lösenordet minst 16 tecken?
 	if (password.length >= 16) {
-		console.log("- ✅ Great! That's a long password!");
+		return true;
 
 	} else if (password.length >= 12 && password.includes('-')) {
-		console.log("- ✅ Great! That's a pretty good password!");
+		return true;
 
 	} else if (password.length >= 8 && containsSpecialChar) {
-		console.log("- ✅ Great! Such password, much secure, very hard to crack!");
+		return true;
 
 	} else {
-		console.log("- 🚨 Insecure password, my grandma can crack it!");
+		return false;
 	}
 }
 
-checkPassword("javascript-memes-are-funny");
-checkPassword("lolcats");
-checkPassword("i <3 javascript");
+/**
+ * Password to test
+ */
+ const passwords = [
+	"password", // inte giltigt
+	"pa$sword", // giltigt
+	// "p@ssw%rd", // giltigt
+	// "pa$$word", // giltigt
+	// "secretpassword", // inte giltigt
+	// "secret-password", // giltigt
+	// "such-password-much-secure-very-long", // giltigt
+];
+
+// Loop over all passwords
+passwords.forEach( (item) => {
+
+	// Check if password is secure 🕵🏻
+	let res = checkPassword( item );
+
+	// Was password secure?
+	if (res) {
+		// YES! 💪🏻
+		console.log(`🔐 Password '${item}' is secure`);
+	} else {
+		// No! 😱
+		console.log(`🚨 Password '${item}' is *NOT* secure`);
+	}
+
+} );
