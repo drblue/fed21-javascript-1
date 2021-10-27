@@ -25,3 +25,57 @@
  * konsollen.
  *
  */
+
+/**
+ * Password to test
+ */
+let password;
+// password = "password"; // inte giltigt
+// password = "pa$sword"; // giltigt
+password = "p@ssw%rd"; // giltigt
+// password = "pa$$word"; // giltigt
+// password = "secretpassword"; // inte giltigt
+// password = "secret-password"; // giltigt
+// password = "such-password-much-secure-very-long"; // giltigt
+
+const specialChars = [
+	"@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
+];
+
+const checkPassword = (password) => {
+
+	console.log(`🕵🏻 Checking password "${password}"`);
+
+	// set status variable to initial value false
+	let containsSpecialChar = false;
+
+	// check for any special chars in password
+	for (let i = 0; // only run once, at the beginning of the loop
+		i < specialChars.length; // should we continue another round?
+		i++) // run AFTER each round is executed
+	{
+		//console.log("At special char:", specialChars[i]);
+		if (password.includes(specialChars[i])) {
+			console.log("Password contained char:", specialChars[i]);
+			containsSpecialChar = true;
+		}
+	}
+
+	// Har lösenordet minst 16 tecken?
+	if (password.length >= 16) {
+		console.log("- ✅ Great! That's a long password!");
+
+	} else if (password.length >= 12 && password.includes('-')) {
+		console.log("- ✅ Great! That's a pretty good password!");
+
+	} else if (password.length >= 8 && containsSpecialChar) {
+		console.log("- ✅ Great! Such password, much secure, very hard to crack!");
+
+	} else {
+		console.log("- 🚨 Insecure password, my grandma can crack it!");
+	}
+}
+
+checkPassword("javascript-memes-are-funny");
+checkPassword("lolcats");
+checkPassword("i <3 javascript");
