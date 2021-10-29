@@ -12,7 +12,7 @@ const barksby = {
 		age: 57,
 	},
 	sound: "WOOOFF!",
-	speak: () => { // don't use arrow functions in methods on objects as the `this` context object isn't updated to reflect the object it is run on
+	speak() {
 		console.log(`${this.name} sound: ${this.sound}`);
 	}
 }
@@ -35,9 +35,61 @@ const meowJr = {
 // console.log(`Barksby's owner is ${barksby.owner.name}`);
 
 
-meowJr.sound = "meow?";
+// meowJr.sound = "meow?";
 
-barksby.speak();
-meowJr.speak();
-meowJr.speak();
-meowJr.speak();
+// barksby.speak();
+// meowJr.speak();
+// meowJr.speak();
+// meowJr.speak();
+
+/*
+// primitive data types are copied by value
+let name1 = "Johan";
+let name2 = name1;  // name2 == "Johan"
+
+name1 = "Pelle"; // name1 == "Pelle", name2 == "Johan"
+
+// console.log(name1, name2);
+
+// complex data types are copied by reference
+let littleBarksby = barksby;
+littleBarksby.name = "Barksby Jr";
+
+console.log(barksby.name);
+console.log(littleBarksby.name);
+
+
+let user1 = {
+	name: "Pelle",
+}
+
+let user2 = {
+	name: "Pelle",
+}
+
+user1.name = "Kajsa";
+*/
+
+// Pass by value
+const happyBirthday = (name, age) => {
+	age++;
+	console.log(`Happy Birthday, ${name}`, age);
+}
+
+let pelle = "Pelle";
+let pelle_age = 2;
+let new_age = pelle_age;
+pelle_age = 3;
+happyBirthday(pelle, pelle_age);
+
+console.log("age outside", pelle_age);
+
+// Objects are passed by reference
+const happyPetBirthday = (pet) => {
+	pet.age++;
+	console.log(`Happy Birthday, ${pet.name}`, pet.age);
+}
+
+happyPetBirthday(meowJr);
+
+console.log("Meow Jr age outside:", meowJr.age); // ?
