@@ -23,7 +23,21 @@ const pets = [
 		}
 	},
 	{
-		hobbies: "Be cute",
+		name: "Little Barksby",
+		species: "Dog",
+		age: 1,
+		hobbies: ["Tail-wagging", "Biting furniture"],
+		owner: {
+			name: "Mr Beans",
+			age: 57,
+		},
+		sound: "woff!",
+		speak() {
+			console.log(`${this.name} sound: ${this.sound}`);
+		}
+	},
+	{
+		hobbies: ["Be cute"],
 		species: "Kitten",
 		age: 1,
 		name: "Meow Jr",
@@ -36,3 +50,17 @@ const pets = [
 		}
 	}
 ];
+
+// get reference to element with id `petslist`
+const petslistEl = document.querySelector('#petslist');
+
+// loop over array of pets
+pets.forEach(pet => {
+	// append info about pet to petslistEl's innerHTML
+	petslistEl.innerHTML += `
+		<li>
+			${pet.name} is a ${pet.species} of ${pet.age} year(s) old.
+			His owner is ${pet.owner?.name} and his favorite hobby is to ${pet.hobbies.join(', ')}.
+		</li>
+	`;
+});
