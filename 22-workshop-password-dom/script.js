@@ -18,8 +18,54 @@ const btnCheckPasswordEl = document.querySelector('#btnCheckPassword');
 const inputPasswordEl = document.querySelector('#inputPassword');
 const statusEl = document.querySelector('#status');
 
+// list of special chars
+const specialChars = [
+	"@", "$", "%", "*", "^", "<", ">", "?", "!", "(", ")", "[", "]", "{", "}", "'"
+];
+
+// function to validate if a password is secure or not
+const checkPassword = (password) => {
+	console.log(`🕵🏻 Checking password "${password}"`);
+
+	// set status variable to initial value false
+	let containsSpecialChar = false;
+
+	// check for any special chars in password
+	for (let i = 0; // only run once, at the beginning of the loop
+		i < specialChars.length; // should we continue another round?
+		i++) // run AFTER each round is executed
+	{
+		if (password.includes(specialChars[i])) {
+			containsSpecialChar = true;
+		}
+	}
+
+	// Har lösenordet minst 16 tecken?
+	if (password.length >= 16) {
+		return true;
+
+	} else if (password.length >= 12 && password.includes('-')) {
+		return true;
+
+	} else if (password.length >= 8 && containsSpecialChar) {
+		return true;
+
+	} else {
+		return false;
+	}
+}
+
 // react to the event of a user clicking on the btnCheckPassword-button
 // or: ON the btnCheckPassword-button, react to the EVENT of a CLICK
 btnCheckPasswordEl.addEventListener('click', () => {
-	// insert code here
+	const inputPassword = inputPasswordEl.value;
+
+	const res = checkPassword(inputPassword);
+	if (res) {
+		// alert("That's a secure password! 🥳");
+		statusEl.innerHTML = "That's a secure password! 🥳";
+	} else {
+		// alert("🚨🚨🚨 NEVER USE THAT PASSWORD AGAIN 🚨🚨🚨");
+		statusEl.innerHTML = "🚨🚨🚨 NEVER USE THAT PASSWORD AGAIN 🚨🚨🚨";
+	}
 });
