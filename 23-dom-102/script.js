@@ -15,3 +15,8 @@ listitems.forEach(listitem => {
 		e.target.style.color = "green"
 	})
 });
+
+addButton.addEventListener('click', () => {
+	// will *REPLACE* all content in listitemsEl with a NEW string that contains both the old and the new content
+	listitemsEl.innerHTML += `<li>I am a new list item 👶🏻</li>`;
+});
