@@ -13,10 +13,10 @@ listitemsEl.addEventListener('click', e => {
 	console.log("You clicked on:", e.target);
 
 	// did user click on an LI?
-	// if (e.target.tagName === "LI") {
+	if (e.target.tagName === "LI") {
 		// yep
 		e.target.style.color = "red";
-	// }
+	}
 });
 
 /*
