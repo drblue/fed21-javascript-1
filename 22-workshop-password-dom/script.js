@@ -62,14 +62,9 @@ btnCheckPasswordEl.addEventListener('click', () => {
 
 	const res = checkPassword(inputPassword);
 	if (res) {
-		// alert("That's a secure password! 🥳");
-		statusEl.classList.remove('alert-warning');
-		statusEl.classList.add('alert-success');
-		statusEl.innerHTML = "That's a secure password! 🥳";
+		statusEl.innerHTML = `<div class="alert alert-success">That's a secure password! 🥳</div>`;
+
 	} else {
-		// alert("🚨🚨🚨 NEVER USE THAT PASSWORD AGAIN 🚨🚨🚨");
-		statusEl.classList.remove('alert-success');
-		statusEl.classList.add('alert-warning');
-		statusEl.innerHTML = "🚨🚨🚨 NEVER USE THAT PASSWORD AGAIN 🚨🚨🚨";
+		statusEl.innerHTML = `<div class="alert alert-warning">🚨🚨🚨 NEVER USE THAT PASSWORD AGAIN 🚨🚨🚨</div>`;
 	}
 });
