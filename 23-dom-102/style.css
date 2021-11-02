@@ -9,3 +9,14 @@ div.error {
 span.secret {
 	display: none;
 }
+
+ul {
+	background-color: #a9f;
+	padding: 2rem;
+}
+
+li {
+	background-color: #5ca;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
