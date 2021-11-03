@@ -17,3 +17,15 @@
  * <li>list item 1 <button>🗑</button></li>
  *
  */
+
+// get references to DOM elements
+const todosEl = document.querySelector('#todos');
+const btnAddNewTodoEl = document.querySelector('#btnAddNewTodo');
+
+btnAddNewTodoEl.addEventListener('click', () => {
+	// get todo to add to list of todos
+	const newTodo = prompt("What you got to do?");
+
+	// add todo to list of todos
+	todosEl.innerHTML += `<li class="list-group-item">${newTodo}</li>`;
+});
