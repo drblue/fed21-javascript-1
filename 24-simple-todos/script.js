@@ -39,7 +39,7 @@ btnAddNewTodoEl.addEventListener('click', () => {
 todosEl.addEventListener('click', e => {
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
-		// remove element
-		e.target.remove();
+		// add class "completed" to LI
+		e.target.classList.add('completed');
 	}
 });
