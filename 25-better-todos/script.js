@@ -64,7 +64,8 @@ todosEl.addEventListener('click', e => {
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
 		// toggle class completed on/off on LI
-		e.target.classList.toggle('completed');
+		// e.target.classList.toggle('completed');
+
 	} else if (e.target.tagName === "BUTTON") {
 		// remove todo from list
 		e.target.parentElement.remove();
