@@ -12,10 +12,22 @@ const newTodoFormEl = document.querySelector('#new-todo-form');
 
 // list of todos
 const todos = [
-	"Eat",
-	"Code",
-	"Sleep",
-	"Repeat"
+	{
+		title: "Eat",
+		completed: false,
+	},
+	{
+		title: "Code",
+		completed: true,
+	},
+	{
+		title: "Sleep",
+		completed: false,
+	},
+	{
+		title: "Repeat",
+		completed: false,
+	}
 ];
 
 const renderTodos = () => {
@@ -24,12 +36,19 @@ const renderTodos = () => {
 
 	// render todos to DOM
 	todos.forEach((todo, i) => {
-		console.log(`Todo at index ${i} is: "${todo}"`);
+		let cssClasses = "list-group-item";
+		if (todo.completed) {
+			// add LI with class "completed"
+			cssClasses += " completed";
+		}
 
-		todosEl.innerHTML += `<li class="list-group-item" data-index="${i}">
-			${todo}
-			<button class="ms-2 btn btn-sm btn-danger">🚮</button>
-		</li>`;
+		// Append a LI-element to the UL
+		todosEl.innerHTML += `
+			<li class="${cssClasses}" data-index="${i}">
+				${todo.title}
+				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
+			</li>
+		`;
 	});
 }
 
@@ -47,8 +66,14 @@ newTodoFormEl.addEventListener('submit', e => {
 	// empty input
 	e.target.newTodo.value = "";
 
+	// create a object for the new todo
+	const newTodo = {
+		title: newTodoDescription,
+		completed: false,
+	}
+
 	// add todo to array of todos
-	todos.push(newTodoDescription);
+	todos.push(newTodo);
 
 	// render todos
 	renderTodos();
@@ -68,8 +93,14 @@ todosEl.addEventListener('click', e => {
 
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
-		// toggle class completed on/off on LI
-		// e.target.classList.toggle('completed');
+		// find index of todo
+		const index = e.target.dataset.index;
+
+		// change completed-status of todo
+		todos[index].completed = true;
+
+		// Render todos
+		renderTodos();
 
 	} else if (e.target.tagName === "BUTTON") {
 		// How to find the clicked todo in our array,
