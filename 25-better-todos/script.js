@@ -20,8 +20,10 @@ const renderTodos = () => {
 	todosEl.innerHTML = "";
 
 	// render todos to DOM
-	todos.forEach(todo => {
-		todosEl.innerHTML += `<li class="list-group-item">
+	todos.forEach((todo, i) => {
+		console.log(`Todo at index ${i} is: "${todo}"`);
+
+		todosEl.innerHTML += `<li class="list-group-item" data-index="${i}">
 			${todo}
 			<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 		</li>`;
@@ -67,7 +69,19 @@ todosEl.addEventListener('click', e => {
 		// e.target.classList.toggle('completed');
 
 	} else if (e.target.tagName === "BUTTON") {
-		// remove todo from list
-		e.target.parentElement.remove();
+		// How to find the clicked todo in our array,
+		// and then remove it from the array?
+		const buttonEl = e.target;
+		const liEl = buttonEl.parentElement;
+		const index = liEl.dataset.index; // data-index=""
+
+		// shorter version of above 3 lines
+		// const index = e.target.parentElement.dataset.index;
+
+		// Remove item with index from array
+		todos.splice(index, 1);
+
+		// Render todos
+		renderTodos();
 	}
 });
