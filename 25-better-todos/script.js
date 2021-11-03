@@ -1,6 +1,9 @@
 /**
  * Better TODOs
  *
+ * Gör om vår TODO till att vara baserad på objekt, där varje objekt
+ * har en completed-egenskap som är ett booleskt värde, så huruvida en
+ * todo är avklarad eller ej inte förloras när listan renderas om.
  */
 
 // get references to DOM elements
