@@ -20,16 +20,18 @@
 
 // get references to DOM elements
 const todosEl = document.querySelector('#todos');
-const btnAddNewTodoEl = document.querySelector('#btnAddNewTodo');
-const newTodoDescriptionEl = document.querySelector('#new-todo-description');
+const newTodoFormEl = document.querySelector('#new-todo-form');
 
-// react to when user clicks on "Add TODO" button
-btnAddNewTodoEl.addEventListener('click', () => {
+newTodoFormEl.addEventListener('submit', e => {
+	// stop form from being submitted to the web server
+	// and hence causing a page reload 😨
+	e.preventDefault();
+
 	// get todo to add to list of todos
-	const newTodo = newTodoDescriptionEl.value;
+	const newTodo = e.target.newTodo.value;
 
 	// empty input
-	newTodoDescriptionEl.value = "";
+	e.target.newTodo.value = "";
 
 	// add todo to list of todos
 	todosEl.innerHTML += `<li class="list-group-item">
