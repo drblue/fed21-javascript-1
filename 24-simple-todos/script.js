@@ -39,7 +39,7 @@ btnAddNewTodoEl.addEventListener('click', () => {
 });
 
 // react to when user clicks on something in our TODO list
-document.querySelector('.container').addEventListener('click', e => {
+todosEl.addEventListener('click', e => {
 	console.log(`You clicked on a ${e.target.tagName} element`, e.target);
 
 	// check if user clicked on a LI element
