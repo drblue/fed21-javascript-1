@@ -28,6 +28,9 @@ btnAddNewTodoEl.addEventListener('click', () => {
 	// get todo to add to list of todos
 	const newTodo = newTodoDescriptionEl.value;
 
+	// empty input
+	newTodoDescriptionEl.value = "";
+
 	// add todo to list of todos
 	todosEl.innerHTML += `<li class="list-group-item">${newTodo}</li>`;
 });
