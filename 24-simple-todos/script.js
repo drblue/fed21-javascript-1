@@ -21,11 +21,12 @@
 // get references to DOM elements
 const todosEl = document.querySelector('#todos');
 const btnAddNewTodoEl = document.querySelector('#btnAddNewTodo');
+const newTodoDescriptionEl = document.querySelector('#new-todo-description');
 
 // react to when user clicks on "Add TODO" button
 btnAddNewTodoEl.addEventListener('click', () => {
 	// get todo to add to list of todos
-	const newTodo = prompt("What you got to do?");
+	const newTodo = newTodoDescriptionEl.value;
 
 	// add todo to list of todos
 	todosEl.innerHTML += `<li class="list-group-item">${newTodo}</li>`;
