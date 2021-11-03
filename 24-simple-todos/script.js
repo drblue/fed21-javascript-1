@@ -22,10 +22,20 @@
 const todosEl = document.querySelector('#todos');
 const btnAddNewTodoEl = document.querySelector('#btnAddNewTodo');
 
+// react to when user clicks on "Add TODO" button
 btnAddNewTodoEl.addEventListener('click', () => {
 	// get todo to add to list of todos
 	const newTodo = prompt("What you got to do?");
 
 	// add todo to list of todos
 	todosEl.innerHTML += `<li class="list-group-item">${newTodo}</li>`;
+});
+
+// react to when user clicks on something in our TODO list
+todosEl.addEventListener('click', e => {
+	// check if user clicked on a LI element
+	if (e.target.tagName === "LI") {
+		// remove element
+		e.target.remove();
+	}
 });
