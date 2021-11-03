@@ -28,14 +28,14 @@ newTodoFormEl.addEventListener('submit', e => {
 	e.preventDefault();
 
 	// get todo to add to list of todos
-	const newTodo = e.target.newTodo.value;
+	const newTodoDescription = e.target.newTodo.value;
 
 	// empty input
 	e.target.newTodo.value = "";
 
 	// add todo to list of todos
 	todosEl.innerHTML += `<li class="list-group-item">
-		${newTodo}
+		${newTodoDescription}
 		<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 	</li>`;
 });
