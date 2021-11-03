@@ -40,6 +40,14 @@ newTodoFormEl.addEventListener('submit', e => {
 	</li>`;
 });
 
+newTodoFormEl.addEventListener('reset', e => {
+	// OH NO YOU NOT RESET FORM, FORM RESETS YOU!
+	// e.preventDefault();
+	// alert("Oh no you didn't");
+
+	alert("Good job cleaning! 👍🏻");
+});
+
 // react to when user clicks on something in our TODO list
 todosEl.addEventListener('click', e => {
 	console.log(`You clicked on a ${e.target.tagName} element`, e.target);
