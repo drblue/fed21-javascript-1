@@ -39,7 +39,7 @@ btnAddNewTodoEl.addEventListener('click', () => {
 todosEl.addEventListener('click', e => {
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
-		// add class "completed" to LI
-		e.target.classList.add('completed');
+		// toggle class completed on/off on LI
+		e.target.classList.toggle('completed');
 	}
 });
