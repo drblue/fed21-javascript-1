@@ -32,14 +32,22 @@ btnAddNewTodoEl.addEventListener('click', () => {
 	newTodoDescriptionEl.value = "";
 
 	// add todo to list of todos
-	todosEl.innerHTML += `<li class="list-group-item">${newTodo}</li>`;
+	todosEl.innerHTML += `<li class="list-group-item">
+		${newTodo}
+		<button class="ms-2 btn btn-sm btn-danger">🚮</button>
+	</li>`;
 });
 
 // react to when user clicks on something in our TODO list
-todosEl.addEventListener('click', e => {
+document.querySelector('.container').addEventListener('click', e => {
+	console.log(`You clicked on a ${e.target.tagName} element`, e.target);
+
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
 		// toggle class completed on/off on LI
 		e.target.classList.toggle('completed');
+	} else if (e.target.tagName === "BUTTON") {
+		// remove todo from list
+		e.target.parentElement.remove();
 	}
 });
