@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>28-workshop-lightbox</title>
+
+	<!-- Nice font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap 5.1 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="jumbotron container-fluid mb-5">
+		<div class="container px-5 py-5">
+			<h1 class="display-4">My Lightbox</h1>
+			<p class="lead">Here be cute kittens.</p>
+		</div>
+	</div>
+
+	<main class="container">
+		<p>Chew on cable. <a href="https://www.google.com">Dream about</a> hunting birds. Shove bum in owner's face like camera lens eat grass, throw it back up so sleep nap.</p>
+
+		<p>Cat not kitten around scamper hiss at vacuum cleaner. Yum has closed eyes but still sees you intently sniff hand. Always hungry lick arm hair. Sit in window and stare ooo, a bird!</p>
+
+		<div class="row photos">
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<a href="assets/images/01.jpg" class="photo" title="Chewbacka">
+					<img src="assets/images/thumbnails/01.jpg" class="img-fluid">
+				</a>
+			</div>
+
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<a href="assets/images/02.jpg" class="photo" title="Mr. Fluffles">
+					<img src="assets/images/thumbnails/02.jpg" class="img-fluid">
+				</a>
+			</div>
+
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<a href="assets/images/03.jpg" class="photo" title="Meowles">
+					<img src="assets/images/thumbnails/03.jpg" class="img-fluid">
+				</a>
+			</div>
+
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<a href="assets/images/04.jpg" class="photo" title="Catto">
+					<img src="assets/images/thumbnails/04.jpg" class="img-fluid">
+				</a>
+			</div>
+
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<a href="assets/images/05.jpg" class="photo" title="Captain Cat">
+					<img src="assets/images/thumbnails/05.jpg" class="img-fluid">
+				</a>
+			</div>
+
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<a href="assets/images/06.jpg" class="photo" title="Major Meow">
+					<img src="assets/images/thumbnails/06.jpg" class="img-fluid">
+				</a>
+			</div>
+
+		</div>
+	</main>
+
+	<div id="lightbox-wrapper">
+		<div id="lightbox">
+			<img src="" class="img-fluid">
+			<div class="caption"></div>
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>

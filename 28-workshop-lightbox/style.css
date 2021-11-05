@@ -1,0 +1,60 @@
+body {
+	background-color: #333;
+	color: #f0f0f0;
+	font-family: 'Open Sans', monospace;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
+.jumbotron {
+	background-color: #555;
+	color: #fff;
+}
+
+.photos > div {
+	margin-bottom: 2rem;
+}
+
+a.photo {
+	display: inline-block;
+}
+
+/**
+ * lightbox styles
+**/
+
+#lightbox-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000000cc;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 3rem;
+}
+#lightbox-wrapper.show {
+	display: flex;
+}
+
+#lightbox,
+#lightbox img {
+	max-height: 95vh;
+}
+
+#lightbox {
+	margin-bottom: 2.5vh;
+}
+
+#lightbox .caption {
+	font-size: 0.8rem;
+	font-style: italic;
+	text-align: center;
+	background-color: #000;
+	padding: 0.25rem 0.5rem;
+}
