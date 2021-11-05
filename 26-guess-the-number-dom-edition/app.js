@@ -39,3 +39,26 @@ const getRandomNumber = function(max = 10) {
 
 let correctNumber;
 let guesses;
+
+// Get number to guess
+correctNumber = getRandomNumber();
+
+// Reset number of guesses to 0
+guesses = 0;
+
+// I'm going to cheat!
+cheatEl.innerText = correctNumber;
+
+formGuessEl.addEventListener('submit', e => {
+	// Stop form from being sent to the server
+	e.preventDefault();
+
+	// Get guessed number from input-field (and convert it to a Number)
+	const guessedNumber = Number(inputGuessEl.value);
+
+	if (guessedNumber === correctNumber) {
+		alert("Yay that's correct!");
+	} else {
+		alert("That is not the number you're looking for");
+	}
+});
