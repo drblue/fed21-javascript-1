@@ -38,17 +38,23 @@ const getRandomNumber = function(max = 10) {
 	return Math.ceil( Math.random() * max );
 }
 
+const updateGuesses = (guesses) => {
+	guessesEl.innerText = `${guesses} guesses`;
+}
+
+const startNewGame = () => {
+	// Get number to guess
+	correctNumber = getRandomNumber();
+
+	// Reset number of guesses to 0
+	guesses = 0;
+
+	// I'm going to cheat!
+	cheatEl.innerText = correctNumber;
+}
+
 let correctNumber;
 let guesses;
-
-// Get number to guess
-correctNumber = getRandomNumber();
-
-// Reset number of guesses to 0
-guesses = 0;
-
-// I'm going to cheat!
-cheatEl.innerText = correctNumber;
 
 formGuessEl.addEventListener('submit', e => {
 	// Stop form from being sent to the server
@@ -61,7 +67,7 @@ formGuessEl.addEventListener('submit', e => {
 	guesses++;
 
 	// Update DOM with guesses made
-	guessesEl.innerText = `${guesses} guesses`;
+	updateGuesses(guesses);
 
 	// Check if guessedNumber is correct
 	if (guessedNumber === correctNumber) {
@@ -74,18 +80,15 @@ formGuessEl.addEventListener('submit', e => {
 });
 
 formGuessEl.addEventListener('reset', e => {
-	// Get a new number to guess
-	correctNumber = getRandomNumber();
-
-	// Reset number of guesses to 0
-	guesses = 0;
+	// Start new game
+	startNewGame();
 
 	// Update DOM with guesses made
-	guessesEl.innerText = `${guesses} guesses`;
-
-	// I'm going to cheat!
-	cheatEl.innerText = correctNumber;
+	updateGuesses(guesses);
 
 	// Empty previous result
 	turnoutEl.innerText = "";
 });
+
+// Start initial game
+startNewGame();
