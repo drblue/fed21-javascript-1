@@ -72,3 +72,20 @@ formGuessEl.addEventListener('submit', e => {
 		turnoutEl.innerText = `${guessedNumber} is too high`;
 	}
 });
+
+formGuessEl.addEventListener('reset', e => {
+	// Get a new number to guess
+	correctNumber = getRandomNumber();
+
+	// Reset number of guesses to 0
+	guesses = 0;
+
+	// Update DOM with guesses made
+	guessesEl.innerText = `${guesses} guesses`;
+
+	// I'm going to cheat!
+	cheatEl.innerText = correctNumber;
+
+	// Empty previous result
+	turnoutEl.innerText = "";
+});
