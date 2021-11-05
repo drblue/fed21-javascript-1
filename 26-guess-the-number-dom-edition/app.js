@@ -57,8 +57,8 @@ formGuessEl.addEventListener('submit', e => {
 	const guessedNumber = Number(inputGuessEl.value);
 
 	if (guessedNumber === correctNumber) {
-		alert("Yay that's correct!");
+		turnoutEl.innerText = `${guessedNumber} is correct!`;
 	} else {
-		alert("That is not the number you're looking for");
+		turnoutEl.innerText = `${guessedNumber} is wrong`;
 	}
 });
