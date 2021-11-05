@@ -36,11 +36,10 @@ const renderTodos = () => {
 
 	// render todos to DOM
 	todos.forEach((todo, i) => {
-		let cssClasses = "list-group-item";
-		if (todo.completed) {
-			// add LI with class "completed"
-			cssClasses += " completed";
-		}
+		// if todo is completed, add "completed" to CSS classes
+		const cssClasses = (todo.completed)
+			? "list-group-item completed"
+			: "list-group-item";
 
 		// Append a LI-element to the UL
 		todosEl.innerHTML += `
