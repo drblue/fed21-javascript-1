@@ -13,18 +13,22 @@ const newTodoFormEl = document.querySelector('#new-todo-form');
 // list of todos
 const todos = [
 	{
+		id: 1,
 		title: "Eat",
 		completed: false,
 	},
 	{
+		id: 2,
 		title: "Code",
 		completed: true,
 	},
 	{
+		id: 3,
 		title: "Sleep",
 		completed: false,
 	},
 	{
+		id: 4,
 		title: "Repeat",
 		completed: false,
 	}
