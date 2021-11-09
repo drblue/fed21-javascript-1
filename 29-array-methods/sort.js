@@ -80,14 +80,11 @@ const students = [
 ];
 
 students.sort( (a, b) => {
-	console.log(a, b);
-	return (a.points - b.points);
-
-	if (a.points < b.points) {
+	if (a.name < b.name) {
 		return -1;
 	}
 
-	if (a.points > b.points) {
+	if (a.name > b.name) {
 		return 1;
 	}
 
