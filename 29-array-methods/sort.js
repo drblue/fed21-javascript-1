@@ -58,7 +58,7 @@ numbers.sort( (a, b) => a - b );
 // We can even sort objects based on a property!
 const students = [
 	{
-		name: "Johan",
+		name: "johan",
 		points: 1337,
 	},
 	{
@@ -66,7 +66,7 @@ const students = [
 		points: 3,
 	},
 	{
-		name: "Alicia",
+		name: "alicia",
 		points: 42,
 	},
 	{
@@ -80,11 +80,11 @@ const students = [
 ];
 
 students.sort( (a, b) => {
-	if (a.name < b.name) {
+	if (a.name.toUpperCase() < b.name.toUpperCase()) {
 		return -1;
 	}
 
-	if (a.name > b.name) {
+	if (a.name.toUpperCase() > b.name.toUpperCase()) {
 		return 1;
 	}
 
