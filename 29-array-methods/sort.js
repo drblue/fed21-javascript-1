@@ -24,11 +24,74 @@ console.log("Names in reverse order:", names);
 */
 
 // numbers
+/*
 const numbers = [ 47, 5, 21, 50, 24, 18, 47, 13, 28, 8, 18, 15, 11, 43, 7, 33, 52 ];
 
 console.log("Numbers in chaos:", numbers);
 
-// sort numbers
-numbers.sort();
+// sort numbers NUMERICALLY
+numbers.sort( (a, b) => {
+	// shorthand
+	return (a - b);
+
+	// if a is less than b (i.e. a should be sorted BEFORE b)
+	if (a < b) {
+		return -1;
+	}
+
+	// if a is greater than b (i.e. a should be sorted AFTER b)
+	if (a > b) {
+		return 1;
+	}
+
+	// a must be equal b
+	return 0;
+} );
 
 console.log("Numbers in proper? order:", numbers);
+
+// EVEN SHORTER NUMBER SORTING 🤯
+// sort numbers NUMERICALLY
+numbers.sort( (a, b) => a - b );
+*/
+
+// We can even sort objects based on a property!
+const students = [
+	{
+		name: "Johan",
+		points: 1337,
+	},
+	{
+		name: "Peter",
+		points: 3,
+	},
+	{
+		name: "Alicia",
+		points: 42,
+	},
+	{
+		name: "Elliot",
+		points: 88,
+	},
+	{
+		name: "Maja",
+		points: 35,
+	},
+];
+
+students.sort( (a, b) => {
+	console.log(a, b);
+	return (a.points - b.points);
+
+	if (a.points < b.points) {
+		return -1;
+	}
+
+	if (a.points > b.points) {
+		return 1;
+	}
+
+	return 0;
+});
+
+console.log("Sorted students:", students);
