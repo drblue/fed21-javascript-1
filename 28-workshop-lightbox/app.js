@@ -60,8 +60,14 @@ document.querySelector('.photos').addEventListener('click', e => {
 		// retrieve URL to large image from parent element's href-attribute
 		const large_img_url = e.target.parentElement.getAttribute('href');
 
+		// retrieve image caption from parent element
+		const img_caption = e.target.parentElement.dataset.caption;
+
 		// set URL to large image on lightbox's image-element's src
 		lightboxImgEl.setAttribute('src', large_img_url);
+
+		// set image caption on lightbox
+		lightboxCaptionEl.innerText = img_caption;
 
 		// finally, add class `show` to `#lightbox-wrapper`
 		lightboxWrapperEl.classList.add('show');
