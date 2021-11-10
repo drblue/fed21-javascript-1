@@ -78,10 +78,10 @@ const renderTodos = () => {
 	const completedTodos = todos.filter(todo => todo.completed);
 
 	// render incomplete todos to DOM
-	incompleteTodos.forEach((todo, i) => {
+	incompleteTodos.forEach(todo => {
 		// Append a LI-element to the UL
 		todosEl.innerHTML += `
-			<li class="list-group-item" data-index="${i}">
+			<li class="list-group-item" data-id="${todo.id}">
 				${todo.title}
 				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 			</li>
@@ -89,10 +89,10 @@ const renderTodos = () => {
 	});
 
 	// render completed todos to DOM
-	completedTodos.forEach((todo, i) => {
+	completedTodos.forEach(todo => {
 		// Append a LI-element to the UL
 		completedTodosEl.innerHTML += `
-			<li class="list-group-item" data-index="${i}">
+			<li class="list-group-item" data-id="${todo.id}">
 				${todo.title}
 				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 			</li>
