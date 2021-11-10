@@ -67,26 +67,30 @@ const products = [
 	{
 		sku: "CORR-BWL",
 		name: "Corrosive bowl",
-		in_stock: 321,
+		in_stock: 321,				// 0 + (321 * 0.99) = 317,79
 		price: 0.99,
 	},
 	{
 		sku: "CTN-SPCE",
 		name: "Cotton spice rack",
-		in_stock: 2,
+		in_stock: 2,				// 317,79 + (2 * 149.99) = 617,77
 		price: 149.99,
 	},
 	{
 		sku: "GOOD-COOKIES",
 		name: "Inside-out Oreo cookies",
-		in_stock: 18,
+		in_stock: 18,				// 617,77 + (18 * 2.49) = 662,59
 		price: 2.49,
 	},
 	{
 		sku: "BACK-BREAKER",
 		name: "The uncomfortable broom",
-		in_stock: 1,
+		in_stock: 1,				// 662,59 + (1 * 28.65) = 691,24
 		price: 28.65,
 	},
 ];
 
+const totalStockValue = products.reduce((sum, product) => {
+	return sum + (product.in_stock * product.price);
+}, 0);
+console.log(`The total stock value is $ ${totalStockValue}.`);
