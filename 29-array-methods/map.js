@@ -57,7 +57,7 @@ products.forEach(product => {
 */
 const skus = products.map(product => product.sku);
 const product_names = products.map(product => product.name);
-console.log("SKUs:", skus);
+// console.log("SKUs:", skus);
 
 // create sale products
 const sale_products = products.map(product => {
