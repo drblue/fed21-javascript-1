@@ -11,7 +11,7 @@
 /**
  * Numbers
  */
-const simple_numbers = [ 1, 2, 3, 4 ];
+// const simple_numbers = [ 1, 2, 3, 4 ];
 
 // const simple_sum = simple_numbers.reduce( (sum, num) => {
 // 	console.log(`Sum is ${sum} and num is ${num}`);
@@ -23,9 +23,9 @@ const simple_numbers = [ 1, 2, 3, 4 ];
 
 // console.log(`Reducer complete, sum is ${simple_sum}`);
 
-const numbers = [ 47, 5, 21, 50, 24, 18, 47, 13, 28, 8, 18, 15, 11, 43, 5, 33 ];
-const numbers_sum = numbers.reduce((prevValue, num) => prevValue + num, 0);
-console.log(`Reducer complete, numbers_sum is ${numbers_sum}`);
+// const numbers = [ 47, 5, 21, 50, 24, 18, 47, 13, 28, 8, 18, 15, 11, 43, 5, 33 ];
+// const numbers_sum = numbers.reduce((prevValue, num) => prevValue + num, 0);
+// console.log(`Reducer complete, numbers_sum is ${numbers_sum}`);
 
 
 /**
@@ -53,7 +53,11 @@ const students = [
 		points: 35,
 	},
 ];
-
+// reduce array of students to the total points of all students
+const totalPoints = students.reduce((sum, student) => {
+	return sum + student.points;
+}, 0);
+console.log("Total points for all students:", totalPoints);
 
 
 /**
