@@ -137,15 +137,16 @@ newTodoFormEl.addEventListener('reset', e => {
 
 // react to when user clicks on something in our TODO list
 todosEl.addEventListener('click', e => {
-	console.log(`You clicked on a ${e.target.tagName} element`, e.target);
-
 	// check if user clicked on a LI element
 	if (e.target.tagName === "LI") {
-		// find index of todo
-		const index = e.target.dataset.index;
+		// find id of clicked todo
+		const todo_id = e.target.dataset.id;  // data-id=""
 
-		// change completed-status of todo
-		todos[index].completed = true;
+		// find todo with id `todo_id` in list of todos
+		const found_todo = todos.find(todo => todo.id == todo_id);
+
+		// change completed-status of found todo
+		found_todo.completed = true;
 
 		// Render todos
 		renderTodos();
