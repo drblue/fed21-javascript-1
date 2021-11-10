@@ -114,8 +114,20 @@ newTodoFormEl.addEventListener('submit', e => {
 	// empty input
 	e.target.newTodo.value = "";
 
+	// find max id of todos
+	let maxId = 0;
+	todos.forEach(todo => {
+		if (todo.id > maxId) {
+			maxId = todo.id;
+		}
+	});
+
+	// increase maxId
+	const newTodoId = maxId + 1;
+
 	// create a object for the new todo
 	const newTodo = {
+		id: newTodoId,
 		title: newTodoDescription,
 		completed: false,
 	}
