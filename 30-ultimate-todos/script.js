@@ -153,17 +153,14 @@ document.querySelectorAll('.todos').forEach(listEl => {
 			renderTodos();
 
 		} else if (e.target.tagName === "BUTTON") {
-			// How to find the clicked todo in our array,
-			// and then remove it from the array?
-			const buttonEl = e.target;
-			const liEl = buttonEl.parentElement;
-			const index = liEl.dataset.index; // data-index=""
+			// find id of clicked todo
+			const todo_id = e.target.parentElement.dataset.id;
 
-			// shorter version of above 3 lines
-			// const index = e.target.parentElement.dataset.index;
+			// find array-index of todo with with id `todo_id`
+			const found_todo_index = todos.findIndex(todo => todo.id == todo_id);
 
 			// Remove item with index from array
-			todos.splice(index, 1);
+			todos.splice(found_todo_index, 1);
 
 			// Render todos
 			renderTodos();
