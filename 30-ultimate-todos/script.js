@@ -21,6 +21,7 @@
 
 // get references to DOM elements
 const todosEl = document.querySelector('#todos');
+const completedTodosEl = document.querySelector('#completed-todos');
 const newTodoFormEl = document.querySelector('#new-todo-form');
 
 // list of todos
@@ -66,19 +67,32 @@ todos.sort((a, b) => {
 });
 
 const renderTodos = () => {
-	// empty UL of todos
+	// empty both lists of todos
 	todosEl.innerHTML = "";
+	completedTodosEl.innerHTML = "";
 
-	// render todos to DOM
-	todos.forEach((todo, i) => {
-		// if todo is completed, add "completed" to CSS classes
-		const cssClasses = (todo.completed)
-			? "list-group-item completed"
-			: "list-group-item";
+	// get all incomplete todos
+	const incompleteTodos = todos.filter(todo => !todo.completed);
 
+	// get all completed todos
+	const completedTodos = todos.filter(todo => todo.completed);
+
+	// render incomplete todos to DOM
+	incompleteTodos.forEach((todo, i) => {
 		// Append a LI-element to the UL
 		todosEl.innerHTML += `
-			<li class="${cssClasses}" data-index="${i}">
+			<li class="list-group-item" data-index="${i}">
+				${todo.title}
+				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
+			</li>
+		`;
+	});
+
+	// render completed todos to DOM
+	completedTodos.forEach((todo, i) => {
+		// Append a LI-element to the UL
+		completedTodosEl.innerHTML += `
+			<li class="list-group-item" data-index="${i}">
 				${todo.title}
 				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 			</li>

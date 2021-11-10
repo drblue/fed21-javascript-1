@@ -1,4 +1,4 @@
-.todos .completed {
+#completed-todos li {
 	color: #aaa;
 	text-decoration: line-through;
 }
