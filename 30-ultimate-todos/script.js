@@ -27,7 +27,7 @@ const newTodoFormEl = document.querySelector('#new-todo-form');
 const todos = [
 	{
 		id: 1,
-		title: "Eat",
+		title: "eat",
 		completed: false,
 	},
 	{
@@ -44,8 +44,26 @@ const todos = [
 		id: 4,
 		title: "Repeat",
 		completed: false,
+	},
+	{
+		id: 5,
+		title: "Learn JavaScript",
+		completed: true,
 	}
 ];
+
+// sort todos
+todos.sort((a, b) => {
+	if (a.title.toUpperCase() < b.title.toUpperCase()) {
+		return -1;
+	}
+
+	if (a.title.toUpperCase() > b.title.toUpperCase()) {
+		return 1;
+	}
+
+	return 0;
+});
 
 const renderTodos = () => {
 	// empty UL of todos
