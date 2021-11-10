@@ -87,5 +87,23 @@ const friends = [
 // USE ONLY THE NEW ARRAY METHODS (sort/filter/find/map)
 
 // 1. get an array of the names of all friends in year 3
+/*
+const year3_friends = friends.filter(friend => friend.year === 3);
+const year3_names = year3_friends.map(friend => friend.name);
+*/
+const year3_names = friends
+	.filter(friend => friend.year === 3)  // get only friends in year 3
+	.map(friend => friend.name);  // get the names of the filtered friends
+console.log("The names of all friends in year 3:", year3_names);
 
 // 2. get an array of the names of all male friends in year 5
+/*
+const year5_male_friends = friends
+	.filter(friend => friend.year === 5) // array of 3 elements
+	.filter(friend => friend.sex === 'M') // array of 2 elements
+	.map(friend => friend.name);
+*/
+const year5_male_friends = friends
+	.filter(friend => (friend.year === 5 && friend.sex === 'M')) // array of 2 elements
+	.map(friend => friend.name);
+console.log("The names of all male friends in year 5:", year5_male_friends);
