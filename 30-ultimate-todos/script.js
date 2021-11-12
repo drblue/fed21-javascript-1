@@ -78,26 +78,20 @@ const renderTodos = () => {
 	const completedTodos = todos.filter(todo => todo.completed);
 
 	// render incomplete todos to DOM
-	incompleteTodos.forEach(todo => {
-		// Append a LI-element to the UL
-		todosEl.innerHTML += `
+	todosEl.innerHTML = incompleteTodos.map(todo => `
 			<li class="list-group-item" data-id="${todo.id}">
 				${todo.title}
 				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 			</li>
-		`;
-	});
+		`).join('');
 
 	// render completed todos to DOM
-	completedTodos.forEach(todo => {
-		// Append a LI-element to the UL
-		completedTodosEl.innerHTML += `
+	completedTodosEl.innerHTML = completedTodos.map(todo => `
 			<li class="list-group-item" data-id="${todo.id}">
 				${todo.title}
 				<button class="ms-2 btn btn-sm btn-danger">🚮</button>
 			</li>
-		`;
-	});
+		`).join('');
 }
 
 // render (initial list of) todos
