@@ -115,12 +115,19 @@ newTodoFormEl.addEventListener('submit', e => {
 	e.target.newTodo.value = "";
 
 	// find max id of todos
+	/*
 	let maxId = 0;
 	todos.forEach(todo => {
 		if (todo.id > maxId) {
 			maxId = todo.id;
 		}
 	});
+	*/
+	const maxId = todos.reduce((max, todo) => {
+		return (todo.id > max)
+			? todo.id
+			: max;
+	}, 0);
 
 	// increase maxId
 	const newTodoId = maxId + 1;
