@@ -123,11 +123,15 @@ newTodoFormEl.addEventListener('submit', e => {
 		}
 	});
 	*/
+	/*
 	const maxId = todos.reduce((max, todo) => {
 		return (todo.id > max)
 			? todo.id
 			: max;
 	}, 0);
+	*/
+	const todoIds = todos.map(todo => todo.id);
+	const maxId = (todoIds.length) ? Math.max(...todoIds) : 0;
 
 	// increase maxId
 	const newTodoId = maxId + 1;
