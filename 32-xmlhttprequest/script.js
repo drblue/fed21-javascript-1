@@ -6,7 +6,7 @@
  * från om requesten lyckas.
  */
 
-const getJSON = (url, callback) => {
+const getJSON = (url, cb) => {
 	// insert code here
 	// Create a new XML Http Request
 	const request = new XMLHttpRequest();
@@ -24,13 +24,13 @@ const getJSON = (url, callback) => {
 				// take a STRING and PARSE it into a JavaScript Object (Array)
 				const data = JSON.parse(request.responseText);
 
-				callback(false, data);
+				cb(false, data);
 
 			} else {
 				// Something went wrong with the request
 				console.log("Request was *NOT* OK!");
 
-				callback("Something went wrong");
+				cb("Something went wrong");
 			}
 		}
 	});
@@ -58,3 +58,15 @@ getJSON('https://jsonplaceholder.typicode.com/users', (err, data) => {
 		document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
 	});
 } );
+
+// Get posts
+getJSON('https://jsonplaceholder.typicode.com/posts', (err, data) => {
+	if (err) {
+		console.log("Could not get posts. Error:", err);
+		return;
+	}
+
+	data.forEach(post => {
+		document.querySelector('#posts').innerHTML += `<li>${post.title}</li>`;
+	});
+});
