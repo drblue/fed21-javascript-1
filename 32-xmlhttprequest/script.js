@@ -1,6 +1,9 @@
 /**
  * XMLHttpRequest
  *
+ * MINI-WORKSHOP: Skriv en funktion som kan hämta vilken URL som helst
+ * och ÄNDÅ ta emot en callback som får både om något går fel OCH datan
+ * från om requesten lyckas.
  */
 
 const getUsers = (callback) => {
