@@ -40,3 +40,25 @@ const getJSON = (url, cb) => {
 	// Done?
 	console.log("Request sent!");
 }
+
+// Get list cats
+getJSON('data/cats.json', (err, cats) => {
+	if (err) {
+		console.log("Could not get list of cats! Error was:", err);
+		return;
+	}
+
+	console.log("Got list of cats:", cats);
+
+	// Get list of dogs
+	getJSON('data/dogs.json', (err, dogs) => {
+
+		// Get list of birds
+		getJSON('data/birds.json', (err, birds) => {
+
+			// We finally done?
+
+		});
+
+	});
+});
