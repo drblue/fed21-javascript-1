@@ -3,7 +3,7 @@
  *
  */
 
-const getUsers = () => {
+const getUsers = (callback) => {
 	// insert code here
 	// Create a new XML Http Request
 	const request = new XMLHttpRequest();
@@ -20,15 +20,14 @@ const getUsers = () => {
 
 				// take a STRING and PARSE it into a JavaScript Object (Array)
 				const data = JSON.parse(request.responseText);
-				console.log("Data:", data);
 
-				data.forEach(user => {
-					document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
-				})
+				callback(false, data);
 
 			} else {
 				// Something went wrong with the request
 				console.log("Request was *NOT* OK!");
+
+				callback("Something went wrong");
 			}
 		}
 	});
@@ -43,4 +42,27 @@ const getUsers = () => {
 	console.log("Request sent!");
 }
 
-getUsers();
+
+// Get users
+getUsers( (err, data) => {
+	if (err) {
+		console.log("ERROR! DANGER WILL ROBINSON!");
+		console.log("Error message:", err);
+		return;
+	}
+
+	data.forEach(user => {
+		document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
+	});
+} );
+
+// Get users (AGAIN)
+getUsers( (err, data) => {
+	if (err) {
+		return;
+	}
+
+	data.forEach(user => {
+		console.log(user.email);
+	});
+});
