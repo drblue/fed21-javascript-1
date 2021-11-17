@@ -20,6 +20,10 @@ request.addEventListener('readystatechange', () => {
 			const data = JSON.parse(request.responseText);
 			console.log("Data:", data);
 
+			data.forEach(user => {
+				document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
+			})
+
 		} else {
 			// Something went wrong with the request
 			console.log("Request was *NOT* OK!");
