@@ -6,7 +6,7 @@
  * från om requesten lyckas.
  */
 
-const getUsers = (callback) => {
+const getJSON = (url, callback) => {
 	// insert code here
 	// Create a new XML Http Request
 	const request = new XMLHttpRequest();
@@ -35,8 +35,8 @@ const getUsers = (callback) => {
 		}
 	});
 
-	// Set request to GET data from 'https://jsonplaceholder.typicode.com/users'
-	request.open('GET', 'https://jsonplaceholder.typicode.com/users');
+	// Set request to GET data from url
+	request.open('GET', url);
 
 	// Send request
 	request.send();
@@ -47,7 +47,7 @@ const getUsers = (callback) => {
 
 
 // Get users
-getUsers( (err, data) => {
+getJSON('https://jsonplaceholder.typicode.com/users', (err, data) => {
 	if (err) {
 		console.log("ERROR! DANGER WILL ROBINSON!");
 		console.log("Error message:", err);
@@ -58,14 +58,3 @@ getUsers( (err, data) => {
 		document.querySelector('#users').innerHTML += `<li>${user.name}</li>`;
 	});
 } );
-
-// Get users (AGAIN)
-getUsers( (err, data) => {
-	if (err) {
-		return;
-	}
-
-	data.forEach(user => {
-		console.log(user.email);
-	});
-});
