@@ -61,6 +61,15 @@ console.log("Getting data...");
 getJSON('data/cats.json')
 	.then(cats => {
 		console.log("Got cats!", cats);
+		return getJSON('data/dogs.json')
+	})
+	.then(dogs => {
+		console.log("Got dogs!", dogs);
+		return getJSON('data/birds.json');
+	})
+	.then(birds => {
+		console.log("Got birds!", birds);
+
 	})
 	.catch(err => {
 		console.log("No cats found!", err);
