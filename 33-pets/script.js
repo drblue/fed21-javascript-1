@@ -1,6 +1,16 @@
 /**
  * Async pets
  *
+ * MINI-WORKSHOP:
+ * Skriv om getJSON() till att vara Promise-baserad, så att vi kan skriva:
+ *
+ * getJSON('data/cats.json')
+ *     .then(cats => {
+ *         console.log("Got cats?", cats);
+ *     })
+ *     .catch(err => {
+ *         console.log("NO CATS FOR YOU!", err);
+ *     })
  */
 
 const getJSON = (url, cb) => {
