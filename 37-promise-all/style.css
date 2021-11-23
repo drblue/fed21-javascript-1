@@ -1,0 +1,11 @@
+pre {
+	color: lightgrey;
+}
+
+#loading-spinner {
+	display: none;
+}
+
+#loading-spinner.show {
+	display: block;
+}
