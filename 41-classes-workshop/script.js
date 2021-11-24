@@ -21,3 +21,45 @@
  * `getTodos()` och `sortTodos()`.
  *
  */
+
+class Todo {
+	completed = false
+
+	constructor(title) {
+		this.title = title;
+	}
+
+	getTitle() {
+		return this.title;
+	}
+
+	isCompleted() {
+		return this.completed;
+	}
+
+	setCompleted() {
+		this.completed = true;
+	}
+
+	setIncomplete() {
+		this.completed = false;
+	}
+}
+
+const todos = [
+	new Todo("Learn OOP"),
+	new Todo("Inherit knowledge"),
+	new Todo("Sleep"),
+	new Todo("Repeat"),
+];
+
+todos[0].setCompleted();
+todos[3].setCompleted();
+
+todos.forEach(todo => {
+	if (todo.isCompleted()) {
+		console.log(`🥳 ${todo.getTitle()}`);
+	} else {
+		console.log(`😥 ${todo.getTitle()}`);
+	}
+});
