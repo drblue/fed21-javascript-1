@@ -11,10 +11,22 @@ class Vehicle {
 		this.model = model
 		this.year = year
 	}
+
+	getInfo() {
+		return `I am a ${this.manufacturer} ${this.model} Vehicle manufactured ${this.year}.`;
+	}
 }
 
 class Boat extends Vehicle {
 	floats = true
+
+	getInfo() {
+		return `I am a ${this.manufacturer} ${this.model} Boat that float:left; manufactured ${this.year}.`;
+	}
+}
+
+class UselessBoat extends Boat {
+	floats = false
 }
 
 class Yacht extends Boat {
@@ -44,3 +56,8 @@ const batMobile = new Car("Batman Inc.", "Batmobile", 2099, 999999);
 const batCycle = new MotorCycle("Batman Inc.", "Batcycle", 2050, 5000);
 
 const boatyMcBoatface = new Yacht("Boaty", "McBoatFace", 2010, 13370);
+
+const garage = [batMobile, batCycle, boatyMcBoatface];
+garage.forEach(vehicle => {
+	console.log(vehicle.getInfo());
+});
